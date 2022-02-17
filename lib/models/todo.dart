@@ -1,0 +1,15 @@
+class Todo {
+  Todo({required this.title, required this.dateTime});
+
+  Todo.fromJson(Map<String, dynamic> json)
+      : title = json['title'],
+        dateTime = DateTime.parse(json['datetime']);
+
+  final String title;
+  final DateTime dateTime;
+
+  Map<String, dynamic> toJson() => {
+        'title': title,
+        'datetime': dateTime.toIso8601String(),
+      };
+}
